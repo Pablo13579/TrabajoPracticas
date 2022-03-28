@@ -1,0 +1,45 @@
+SQLServer2019 en Docker -->
+
+- docker pull mcr.microsoft.com/mssql/server:2019-latest
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=#Practicas36" `
+   -p 1433:1433 --name sql1 --hostname sql1 `
+   -d mcr.microsoft.com/mssql/server:2019-latest
+
+docker ps -a
+
+Documentación: https://docs.microsoft.com/es-es/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell
+
+- Microsoft SQL Server Management -->
+
+Máquina: localhost
+User: SA
+Contraseña: #Practicas36
+
+Solución a error: Cerrar los servicios de SLQ Diempi (eran 2)
+
+- Copiar archivo a un docker -->
+
+Tips: Meterse a la carpeta para evitar codigo de más
+
+docker cp AdventureWorks.bak sql1:/AdventureWorks.bak
+
+- Herramientas Dotnet -->
+
+dotnet tool install --global dotnet-ef
+
+dotnet tool update --global dotnet-ef
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+- Crear Scaffold de tablas -->
+
+Tips: Hay que entrar a la carpeta dentro de esta de mismo nombre
+
+dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User Id=SA;Password=#Practicas36" Microsoft.EntityFrameworkCore.SqlServer -t TABLADESEADA -c NOMBREDELATABLA
+
+o
+
+dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User Id=SA;Password=#Practicas36" Microsoft.EntityFrameworkCore.SqlServer
