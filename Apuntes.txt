@@ -22,7 +22,7 @@ Solución a error: Cerrar los servicios de SLQ Diempi (eran 2)
 
 Tips: Meterse a la carpeta para evitar codigo de más
 
-docker cp AdventureWorks.bak sql1:/AdventureWorks.bak
+docker cp .\AdventureWorks2019.bak idcontainer(9ae98c384d7c, por ejemplo):/AdventureWorks2019.bak
 
 - Herramientas Dotnet -->
 
@@ -43,3 +43,7 @@ dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User 
 o
 
 dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User Id=SA;Password=#Practicas36" Microsoft.EntityFrameworkCore.SqlServer
+
+- Base de datos -->
+
+Se conecta a la tabla elegida, no a los que pertenecen a esta

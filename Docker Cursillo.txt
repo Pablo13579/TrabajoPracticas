@@ -1,0 +1,35 @@
+Teoría:
+- Usa containers
+- Interfaz común para el arranque de aplicaciones
+- CGroups: permite poner límites de recursos, como la memoria, cpu, almacenamiento de disco, etc (a los procesos). Si el proceso supera los límites linux mata el proceso.
+- Namespaces: permite decidir que ve un proceso, es decir, usan diferentes name spaces para cada proceso (como el listado de procesos o el file system.)
+- Docker se descarga las imágenes de un repositio oficial de docker desde git hub
+
+- Dockerfile: describe que es lo que tiene una imagen de docker, es decir, que contenido va a tener esta y como se va a ejecutar
++ El FROM del fichero Docker file indica a partir de que imagen está construida, mientras que un scratch indica que no está basada en ninguna otra imagen (todo de cero)
++ ENTRYPOINT: Siempre se va a ejecutar dentro del docker run (especificado dentro del Dockerfile o el que va  por defecto, se ejecuta siempre que se entre al contenedor)
++ El RUN dice que comandos se van a ejecutar dentro dentro del contenedor
++ El CMD es el comando a ejecutar cuando se haga un docker run.
++ CMD: Sirve para agregar instrucciones al fichero Dockerfile, se ejecutan después del entrypoint (no hay cmd por defecto)
++ La LABEL son etiquetas que pueden ser llamadas en la aplicación las cuales contienen información.
++ ENV es usabada en los Dockerfile para declarar variables de entorno;
+
+Comandos:
+- docker run -it (sale por la consola, puedes ver los comandos) ubuntu (por ejemplo crea un contenedor con ubuntu de una imagen base ya descargada)
+- docker ps (permite ver todos los procesos en ejecución)
+- docker ps -a (muestra todos los contenedores)
+- docker info (permite saber si está bien instalado docker)
+- docker start -i (permite entrar dentro dde la interfaz del contenedor) idcontenedor (con el docker ps podemos ver la id del contenedor) (inicia el contenedor con la id especificada)
+- docker stop idcontenedor (con el docker ps podemos ver la id del contenedor) (para el contenedor con la id especificada)
+- docker rm idcontenedor (con el docker ps podemos ver la id del contenedor) (borrar el contenedor con la id especificada)
+- docker images (muestra todas las imágenes)
+- docker build -t "pruebaimagen-hola-mundo" . (crea una imagen con el nombre indicado usando el DockerFile del directorio indicado)
+- docker build -t "pruebaimagen-hola-mundo" . -f (nombre del archivo de expansión) (crea una imagen con el nombre indicado usando el DockerFile del directorio indicado y una extensión de otro archivo desde el directorio de este)
+- docker run --rm -p (8000:80) -it "pruebaimagen-hola-mundo" (Crea el contenedor (php en este caso) abriendo el puerto apache a nuestro ordenador 8.000 al puerto 80 del contenedor (donde está apache en el contenedor))
+- curl -i localhost:8000\ (se puede observar si el servidor apache está encendido y si nuestro contenedor está en ejecución)
+
+Ejercicios Ubuntu:
+- ls -lah (muestra todos los archivos del directorio)
+- echo "hello Lorito" > my-file (contenido del fichero y nombre del fichero)
+- while true; do cat my-file; sleep3; done (muestra el contenido del fichero cada 3 segumdos para siempre)
+- ps afux (ver los procesos de ubuntu)
