@@ -25,4 +25,5 @@ namespace Practicas36
         /// </summary>
         public DateTime ModifiedDate { get; set; }
     }
+
 }
