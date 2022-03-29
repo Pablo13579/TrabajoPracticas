@@ -96,16 +96,16 @@ void Leer()
             leer = Console.ReadLine();
             if (leer == "1")
             {
-                /*try
-                {*/
+                try
+                {
                     Console.WriteLine("Introduzca una ID");
                     id = Console.ReadLine();
                     var dep = db.Departments.AsEnumerable().ElementAt(Int32.Parse(id) - 1);
                     Console.WriteLine(dep.DepartmentId.ToString() + " " + dep.Name + " " + dep.GroupName + " " + dep.ModifiedDate);
-                /*} catch (Exception ex)
+                } catch (Exception ex)
                 {
                     Console.WriteLine("Departamento no encontrado");
-                }*/
+                }
             } else if (leer == "2")
             {
                 db.Departments.ToList().ForEach(dep1 => Console.WriteLine(dep1.DepartmentId.ToString() + " " + dep1.Name + " " + dep1.GroupName + " " + dep1.ModifiedDate));
