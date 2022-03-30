@@ -1,0 +1,9 @@
+- Los patrones de diseño creacionales o el patrón builder es el uso de un patrón padre para realizar distintos patrones a partir de este.
+- Diferencias entre patrones de arquitectura y diseño
++ Diseño: Se aplica el patrón para cosas más concretos
++ Arquitectura: Se aplica un patrón que afecta a gran parte del código
+- Todo practicamente asociado a orientación de objetos
+- Tipos de patrones creacionales:
++ Singleton: Solo se usa para garantizar el acceso a una estancia, problemas con los text unitarios (staticos)
++ Solid: 
++ Testabilidad: 

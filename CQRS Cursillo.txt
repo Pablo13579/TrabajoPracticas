@@ -1,0 +1,6 @@
+- CQRS es un patrón de diseño a alto nivel que nos mejora el rendimiento de nuestros equipos, de manera que nos ayuda a definir la arquitectura en nuestra aplicación
+- Programa de ejemplo:
+1.- Persona manda petición http al controlador (tipo post)
+2.- Controlador recibe petición y encapsula los datos necesarios para la creación del vídeo, se envia el comando al bus
+3.- Transporta el comando a su destinatario (command handler), almacena el mapeo 1 a 1 entre commandy command handler, procesa peticiones de forma asíntona, no necesita estar sincronizado
+4.- El command handler encapsula los datos necesarios para la creación del vídeo y permite un transporte sencillo entre capas

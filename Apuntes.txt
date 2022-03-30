@@ -47,3 +47,25 @@ dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User 
 - Base de datos -->
 
 Se conecta a la tabla elegida, no a los que pertenecen a esta
+
+- Proyecto NET CORE ASP NET
+
+Swagger se usa para generar una documentación útil y páginas de ayuda para API web. Tutorial para crear una API WEB
+
+Si se pega la URL de solicitud muestra archivo JSON con los datos en el buscador
+
+httprepl https://localhost:7158/api/todoitems (cambiar el nombre del context y el puerto asociado) (se entra al programa de la API, si sale desconnectado hacer connect)
+
+get (obtiene si tiene información)
+
+dotnet tool install -g Microsoft.dotnet-httprepl
+
+CRUD:
+
+get (obtiene los datos de la tabla)
+
+post -h Content-Type=application/json -c "{"name":"Finanzas","groupName":"Gestión de cobros y finanzas"}" (se crea un nuevo registro)
+
+put -h Content-Type=application/json -c "{"departmentId":17,"name":"Cobros","groupName":"Gestion de cosas"}" (Apuntando a un registro (cd 1) se editan los datos de este)
+
+delete (borra un registro al que se apunta)

@@ -4,6 +4,8 @@ Teoría:
 - CGroups: permite poner límites de recursos, como la memoria, cpu, almacenamiento de disco, etc (a los procesos). Si el proceso supera los límites linux mata el proceso.
 - Namespaces: permite decidir que ve un proceso, es decir, usan diferentes name spaces para cada proceso (como el listado de procesos o el file system.)
 - Docker se descarga las imágenes de un repositio oficial de docker desde git hub
+- Los volúmenes sirven para el guardado de datos paralelo al container, por lo que al ser borrado no desaparecen los datos del pc, se pueden tanto crear nuevos volúmenes,
+  usar alguno ya existente y se puede especificar la ruta de la carpeta donde queremos que se copien los datos del servicio
 
 - Dockerfile: describe que es lo que tiene una imagen de docker, es decir, que contenido va a tener esta y como se va a ejecutar
 + El FROM del fichero Docker file indica a partir de que imagen está construida, mientras que un scratch indica que no está basada en ninguna otra imagen (todo de cero)
@@ -12,7 +14,8 @@ Teoría:
 + El CMD es el comando a ejecutar cuando se haga un docker run.
 + CMD: Sirve para agregar instrucciones al fichero Dockerfile, se ejecutan después del entrypoint (no hay cmd por defecto)
 + La LABEL son etiquetas que pueden ser llamadas en la aplicación las cuales contienen información.
-+ ENV es usabada en los Dockerfile para declarar variables de entorno;
++ ENV es usabada en los Dockerfile para declarar variables de entorno.
++ VOLUME se usa para indicar que se va a crear un volume y la carpeta especificada de este
 
 Comandos:
 - docker run -it (sale por la consola, puedes ver los comandos) ubuntu (por ejemplo crea un contenedor con ubuntu de una imagen base ya descargada)
@@ -27,6 +30,11 @@ Comandos:
 - docker build -t "pruebaimagen-hola-mundo" . -f (nombre del archivo de expansión) (crea una imagen con el nombre indicado usando el DockerFile del directorio indicado y una extensión de otro archivo desde el directorio de este)
 - docker run --rm -p (8000:80) -it "pruebaimagen-hola-mundo" (Crea el contenedor (php en este caso) abriendo el puerto apache a nuestro ordenador 8.000 al puerto 80 del contenedor (donde está apache en el contenedor))
 - curl -i localhost:8000\ (se puede observar si el servidor apache está encendido y si nuestro contenedor está en ejecución)
+- docker run -it --name vol-test -v /data ubuntu (crea un volumen de nombre vol-test en el directorio data la cual se encuentra en mi pc)
+- docker inspect -f "{{json .Mounts}}" vol-test (me muestra la ruta donde se encuentra)
+- docker volume ls (lista los volúmenes)
+- docker volume create prueba-volume (crea un volumen el cual puede ser utilizado)
+- docker run -it --name vol-test -v prueba-volume:/data ubuntu (usa el volumen ya creado y le crea una carpeta donde es instalado la imagen deseada)
 
 Ejercicios Ubuntu:
 - ls -lah (muestra todos los archivos del directorio)
