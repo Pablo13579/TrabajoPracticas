@@ -1,0 +1,20 @@
+- Los principios SOLID son aquellos principios de diseños de Software (convenciones generales), ayudan a hacer un código más mantenible y tolerante a cambios,
+  aplicables tanto al microdiseño como a los microservicios.
+- Principio de responsabilidad única, principio abierto / cerrado, principio de sustitución de Liskov, principio de segregación de interfaz y principio de dependencia jerárquica
+
+- Principio de responsabilidad única: Una clase debe representar un único concepto y responsabilidad
+  (clases de servicio pequeñas y concisas (servicios única función (1 método público)))
+  Se busca cohesión y elasticidad, composición de clases desde inyección de dependencia desde otras clases (se evita duplicar código)
+
+- Principio abierto / cerrado: 
+
+- Principio de sustitución Liskov: 
+
+- Prncipio de segregación de interfaz: 
+
+- Principio de dependencia jerárquica: 
+
+- STUPID: Singleton (patrón estático, dificil testeo, estado global), Tight Coupling (problema a la hora de modificaciones, no tolerante), Inestable (dificil testeabilidad),
+  Optimización Prematura (Exceso de código por intento de optimización futura), Nombres Indescriptibles (nombres de variables o clases absurdas), Duplicación (código duplicado)
+
+- UML: Modelo cascada, casos de uso (funcionalidades de nuestra aplicación), secuencia (interacción entre clases)

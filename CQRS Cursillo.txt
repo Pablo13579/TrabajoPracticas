@@ -1,6 +1,18 @@
 - CQRS es un patrón de diseño a alto nivel que nos mejora el rendimiento de nuestros equipos, de manera que nos ayuda a definir la arquitectura en nuestra aplicación
+  Se suele usar para hacer la complejidad de las aplicaciones menor según aumenta su tamaño, es decir, se crean clases extensibles
 - Programa de ejemplo:
 1.- Persona manda petición http al controlador (tipo post)
 2.- Controlador recibe petición y encapsula los datos necesarios para la creación del vídeo, se envia el comando al bus
 3.- Transporta el comando a su destinatario (command handler), almacena el mapeo 1 a 1 entre commandy command handler, procesa peticiones de forma asíntona, no necesita estar sincronizado
-4.- El command handler encapsula los datos necesarios para la creación del vídeo y permite un transporte sencillo entre capas
+4.- El command handler encapsula los datos necesarios para la creación del vídeo y transforma los datos a tipos de dominio
+
+- Un command representa la intención de realizar una operación en nuestro sistema que acabe modificando el estado de tal
+  (DTO objeto transferencia de datos, no tiene comportamientos, es inmutable y con x elementos en el constructor, no devuelben nada (void)).
+  Si existe una gran cantida de tráfico nos aporta el poder realizar tareas asíncronas (se usa la etiqueta extends Command).
+- Side Efects son modificaciones del estado del sistema
+- Sincronismo: Ejecuciones sencillas de ejecutar, poco rendimiento
+- Asíncrono: Ejecuciones más complejas en segundo plano, mucho rendimiento
+
+- Una query también tienen las propiedades del DTO (JAVA POJOS's, PHP POPO's) transportan datos de una capa a otra, devuelben algo (implements Query), no tienen side-effects
+  Ej: peticiones que tienen posibilidad de perderse (PHP), se puede hacer petición de búsqueda de vídeo, llega al controlador, esto los instancia
+  Se puede usar la proyección: es la visualización de los datos que vemos (ej: carrito de la compra, se puede pedir la id del carrito de la compra)

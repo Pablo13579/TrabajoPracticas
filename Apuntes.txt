@@ -69,3 +69,10 @@ post -h Content-Type=application/json -c "{"name":"Finanzas","groupName":"GestiÃ
 put -h Content-Type=application/json -c "{"departmentId":17,"name":"Cobros","groupName":"Gestion de cosas"}" (Apuntando a un registro (cd 1) se editan los datos de este)
 
 delete (borra un registro al que se apunta)
+
+- Git -->
+
+Using winget tool
+Install winget tool if you don't already have it, then type this command in command prompt or Powershell.
+Comando: winget install --id Git.Git -e --source winget
+
