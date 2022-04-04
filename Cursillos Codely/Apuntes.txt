@@ -1,0 +1,83 @@
+SQLServer2019 en Docker -->
+
+- docker pull mcr.microsoft.com/mssql/server:2019-latest
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=#Practicas36" `
+   -p 1433:1433 --name sql1 --hostname sql1 `
+   -d mcr.microsoft.com/mssql/server:2019-latest
+
+docker ps -a
+
+Documentación: https://docs.microsoft.com/es-es/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell
+
+- Microsoft SQL Server Management -->
+
+Máquina: localhost
+User: SA
+Contraseña: #Practicas36
+
+Solución a error: Cerrar los servicios de SLQ Diempi (eran 2)
+
+- Copiar archivo a un docker -->
+
+Tips: Meterse a la carpeta para evitar codigo de más
+
+docker cp .\AdventureWorks2019.bak idcontainer(9ae98c384d7c, por ejemplo):/AdventureWorks2019.bak
+
+- Herramientas Dotnet -->
+
+dotnet tool install --global dotnet-ef
+
+dotnet tool update --global dotnet-ef
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+- Crear Scaffold de tablas -->
+
+Tips: Hay que entrar a la carpeta dentro de esta de mismo nombre
+
+dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User Id=SA;Password=#Practicas36" Microsoft.EntityFrameworkCore.SqlServer -t TABLADESEADA -c NOMBREDELATABLA
+
+o
+
+dotnet ef dbcontext scaffold "Server=localhost;Database=AdventureWorks2019;User Id=SA;Password=#Practicas36" Microsoft.EntityFrameworkCore.SqlServer
+
+- Base de datos -->
+
+Se conecta a la tabla elegida, no a los que pertenecen a esta
+
+- Proyecto NET CORE ASP NET
+
+Swagger se usa para generar una documentación útil y páginas de ayuda para API web. Tutorial para crear una API WEB
+
+Si se pega la URL de solicitud muestra archivo JSON con los datos en el buscador
+
+httprepl https://localhost:7158/api/todoitems (cambiar el nombre del context y el puerto asociado) (se entra al programa de la API, si sale desconnectado hacer connect)
+
+get (obtiene si tiene información)
+
+dotnet tool install -g Microsoft.dotnet-httprepl
+
+CRUD:
+
+get (obtiene los datos de la tabla)
+
+post -h Content-Type=application/json -c "{"name":"Finanzas","groupName":"Gestión de cobros y finanzas"}" (se crea un nuevo registro)
+
+put -h Content-Type=application/json -c "{"departmentId":17,"name":"Cobros","groupName":"Gestion de cosas"}" (Apuntando a un registro (cd 1) se editan los datos de este)
+
+delete (borra un registro al que se apunta)
+
+- Git -->
+
+Using winget tool
+Install winget tool if you don't already have it, then type this command in command prompt or Powershell.
+Comando: winget install --id Git.Git -e --source winget
+
+/var/backups
+
+docker run -it -v C:\Users\practicas36\Desktop\base_datos_pruebas:/var/backups `
+-e "ACCEPT_EULA=Y" -e "SA_PASSWORD=#Practicas36" -p 1433:1433 --name sql2 --hostname sql2 `
+-d mcr.microsoft.com/mssql/server

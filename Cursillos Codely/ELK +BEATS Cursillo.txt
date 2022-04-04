@@ -1,0 +1,9 @@
+- Elastic: Plataforma de búsqueda textual, análisis de datos, agregaciones
+- ElasticSearch: Mortor de búsqueda, provee opciones de escalado y de búsqueda, puedes guardar un monton de información y luego juntarla
+- Kibana: Visualizar toda la información con gráficos
+- Logstash y beats: Para enviar los logs (errores principalmente)
+- Cluster es una arquitectura constituida por varios equipos que forman nodos (pueden funcionar de forma independiente)
+
+
+- Comandos de instalación en Docker Compose:
++ docker-compose up -d elasticsearch

@@ -1,0 +1,52 @@
+- Los patrones de diseño creacionales o el patrón builder es el uso de un patrón padre para realizar distintos patrones a partir de este.
+- Diferencias entre patrones de arquitectura y diseño
++ Diseño: Se aplica el patrón para cosas más concretos
++ Arquitectura: Se aplica un patrón que afecta a gran parte del código
+- Todo practicamente asociado a orientación de objetos
+- Tipos de patrones creacionales:
++ Singleton: Solo se usa para garantizar el acceso a una estancia, problemas con los text unitarios (staticos)
++ Solid: 
++ Testabilidad: 
+
+
+
+
+
+
+- Tipos de patrones de diseño:
+
++ Builder: El patrón de diseño creacional builder permite  construir objetos complejos paso a paso.
+  Nos permite producir diferentes tipos y representaciones de un objeto unsando el mismo código de construcción.
+
+  Problema a plantear: Si se requieren laboriosos pasos de un objeto complejo como muchos campos y objetos anidados,
+  Provoca problemas con gigantescos constructores de parámetros o incluso desperdigados por el codigo del cliente.
+	Ej: Tenemos una casa simple, pero queremos que sea ampliada con un montón de extensiones de esta,
+	entonces creamos subclases de esta para cubrir todas las combinaciones, cualquier extensión que se quiera
+	seguir agregando va a seguir aumentando la lista de estas. Una solución a esto  es crear un constructor
+	enorme en la clase principal con todos los parámetros deseados.
+	Aunque se elimine la necesidad de las subclases esto genera otro problema a largo plazo.
+
+  Solución al problema: Gracias al patrón de diseño builder nos permite sacar el código del constructor
+  fuera de esta y moverlos objetos separados llamados builder.
+  Provocando que estos se vuelvan una serie de pasos a cumplir para realizar el builder completo.
+  
+  La principal ventaja es que no tienes que llamar a todos estos pasos, tu puedes acceder solo a los que necesites
+  para la producción del producto final.
+  Algunas construcciones van a requerir mismas necesidades pero de distinto material, por lo que la solución
+  es crear diferentes clases builder que implementan el la misma construcción por pasos con distinto material.
+
+  Esto solo es útil si el código del cliente es capaz de inteeractuar con los builders.
+
+* Estructura general:
+
+1.- La interfaz Builder declara los pasos de la construcción del producto
+2.- Los constructores de hormigón proveen  diferentes implementaciones de pasos de construcción. Estos pueden
+    producir productos que no siguen la interfaz común.
+3.- Los productos construidos por builders no tienen ppor que pertenecer a la misma clase jerárquica o interfaz
+4.- Las clases del director definen el orden de llamada a la construcción de pasos, por lo que puedes reusarte
+    de configuraciones especiales de productos.
+5.- El clientes debe asociar uno de los objetos builder con el director. Una vez hacen el primer object builder
+    no suele hacer falta volverle a pasar la información a no ser que se quiera cambiar una construcción diferente
+
+
++ Repositorio: 

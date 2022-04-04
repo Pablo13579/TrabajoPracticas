@@ -1,0 +1,33 @@
+- Los principios SOLID son aquellos principios de diseños de Software (convenciones generales), ayudan a hacer un código más mantenible y tolerante a cambios,
+  aplicables tanto al microdiseño como a los microservicios.
+- Principio de responsabilidad única, principio abierto / cerrado, principio de sustitución de Liskov, principio de segregación de interfaz y principio de dependencia jerárquica
+
+- Principio de responsabilidad única: Una clase debe representar un único concepto y responsabilidad
+  (clases de servicio pequeñas y concisas (servicios única función (1 método público)))
+  Se busca cohesión y elasticidad, composición de clases desde inyección de dependencia desde otras clases (se evita duplicar código)
+
+- Principio abierto / cerrado: Se debería poder extender pero no modificar, si estubiera abierto a modificarse sería un caos porque tendríamos que ir acada parte del software
+  que se necesite modificar para que se implemente correctamente la nueva función.
+
+- Principio de sustitución Liskov: Si S es un subtipo de T, instancias de T deberían poderse sustituir por instancias de S sin alterar las propiedades del programa, es decir,
+  el subtipo de un padre tiene que ser capaz de poder substituirlo sin cambiar las propiedades de este. Ej: clase cuadrado y clase rectángulo chocan (no respetan el correcto
+  funcionamiento del contrato padre).
+
+- Principio de segregación de interfaz: Ningún cliente debería verse forzado a depender de métodos que no usa, es decir, basarse en el uso de estas por parte de los clientes,
+  no incluir métodos innecesarios o de uso practicamente nulo (caso de uso). Siempre ponerse en la piel de cliente para la creación de estas. Alta cohesión y bajo 
+  acoplamiento estructural. Hay excepciones como posibles problemas de optimización y de rendimiento de la aplicación, donde hay que volver a replantear opciones.
+
+- Principio de dependencia jerárquica: Módulos / clases de alto nivel no debería depender de los de bajo nivel, deberían depender de asbtracciones, es decir,
+  el caso de uso es de alto nivel y la interfaz del notificador es del mismo nivel, mientras que si fuera con una implementación hay problemas. Una manera de realizarlo
+  es mediante la inyección de dependencias (parámetros recibidos en constructor), depender de las interfaces, no de implementaciones concretas, etc.
+  Como finalidad está presente la modificación y sustitución de implementaciones y las testeabilidad de las clases.
+
+- STUPID: Singleton (patrón estático, dificil testeo, estado global), Tight Coupling (problema a la hora de modificaciones, no tolerante), Inestable (dificil testeabilidad),
+  Optimización Prematura (Exceso de código por intento de optimización futura), Nombres Indescriptibles (nombres de variables o clases absurdas), Duplicación (código duplicado)
+
+- UML: Modelo cascada, casos de uso (funcionalidades de nuestra aplicación), secuencia (interacción entre clases)
+
+- Un método abstracto y una interfaz es los mismo salvo que el el método abstracto puede tener lógica
+
+- Para crear constructores de una clase solo hay que crear la instanciación privada a la quer se desea asignar y luego dentro del constructor de esta se crean los
+  constructores que se quieren igualar a los privados para ser usados.
