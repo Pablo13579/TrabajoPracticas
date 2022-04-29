@@ -1,0 +1,9 @@
+V1
+- Ejecutar archivo resizer.ps1
+V2
+- Necesitas libería de image magik : https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-31-Q16-HDRI-x64-dll.exe
+- Ejecutar el archivo
+- Tiene más comandos a explorar
+
+Se ejecuta con PowerShell dentro de la carpeta de las imágenes,
+al hacerlo este crea otra carpeta dentro de ests donde va a colocar las imágenes redimensionadas.
